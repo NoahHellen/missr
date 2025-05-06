@@ -1,38 +1,39 @@
 # missr <img src="man/figures/logo.png" align="right" height="138" /></a>
 
-## Overview
-
-The goal of missr is to help you classify missing data as MCAR, MAR, or MNAR.
+The goal of missr is to help you classify missing data as MCAR, MAR, or MNAR. It does this by providing:
+- Statistical tests for MCAR and MAR:
+    - `mcar()`
+    - `mar()`
+- Process of elimination for MNAR:
+    - `mnar()`
 
 ## Installation
 
 ```{r}
-# Install missr from CRAN through your R terminal.
 install.packages("missr")
 ```
 
 ## Examples
 
 - Testing for MCAR.
-    - Null hypothesis is that data is MCAR.
+    - Null hypothesis is that data is MCAR; if the p-value is not significant, there is evidence the data is MCAR.
 
 ```{r}
-test_mcar(data)
+mcar(data)
 ```
 
 - Testing for MAR.
-    - Null hypothesis is that data is not MAR.
+    - Each null hypothesis is that data is not MAR; if each p-value is significant, there is evidence the data is MAR.
 
 ```{r}
-test_mar(data)
+mar(data)
 ```
 
 - Testing for MNAR.
     - No new tests, simply a process of elimination.
 
 ```{r}
-# Test for MNAR.
-test_mnar(data)
+mnar(data)
 ```
 
 ## License
