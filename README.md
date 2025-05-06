@@ -8,11 +8,18 @@
 [![R-CMD-check](https://github.com/NoahHellen/missr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NoahHellen/missr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/NoahHellen/missr/graph/badge.svg)](https://app.codecov.io/gh/NoahHellen/missr)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 The goal of missr is to help you classify missing data as MCAR, MAR, or
-MNAR. It does this by providing: - Statistical tests for MCAR and MAR: -
-`mcar()` - `mar()` - Process of elimination for MNAR: - `mnar()`
+MNAR. It does this by providing:
+
+- Statistical tests for MCAR and MAR:
+  - `mcar()`
+  - `mar()`
+- Process of elimination for MNAR:
+  - `mnar()`
 
 ## Installation
 
