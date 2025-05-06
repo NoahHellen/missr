@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="https://i.imgur.com/0LUfaIr.png" height="100" alt="image"/>
-</p>
-
-# missr
+# missr <img src="man/figures/logo.png" align="right" height="138" /></a>
 
 ## Overview
 

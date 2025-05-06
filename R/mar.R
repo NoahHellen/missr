@@ -6,12 +6,12 @@
 #'
 #' @details
 #' In the following, each column of M with missing data is regressed on
-#' D_{obs}. Each regression produces a vector of p-values (one for each
-#' variable in D_{obs}). The smallest p-value is the most important. This
+#' D_obs. Each regression produces a vector of p-values (one for each
+#' variable in D_obs). The smallest p-value is the most important. This
 #' is because missing data need only be dependent on one observed variable
 #' for the data to be MAR. If each reported smallest p-value is significant,
 #' the data is MAR. See `vignette("background")` for definitions of M and
-#' D_{obs}.
+#' D_obs.
 #'
 #' @param data A data frame.
 #'
@@ -63,11 +63,11 @@ mar <- function(data) {
     p_vals[[col]] <- numeric()
     vars[[col]] <- character()
     for (j in seq_len(ncol(data))) {
-      s <- summary(lm(ind[[col]] ~ data[[j]]))
+      s <- summary(stats::lm(ind[[col]] ~ data[[j]]))
       p_vals[[col]][[j]] <- s$coefficients[2, 4]
       vars[[col]][[j]] <- colnames(data)[j]
     }
-    comb[[col]] <- setNames(unlist(p_vals[[i]]), vars[[i]])
+    comb[[col]] <- stats::setNames(unlist(p_vals[[i]]), vars[[i]])
   }
   tibble::tibble(
     missing = cols_miss,

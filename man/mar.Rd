@@ -25,12 +25,12 @@ The null hypothesis for each is that the data are not MAR.
 }
 \details{
 In the following, each column of M with missing data is regressed on
-D_{obs}. Each regression produces a vector of p-values (one for each
-variable in D_{obs}). The smallest p-value is the most important. This
+D_obs. Each regression produces a vector of p-values (one for each
+variable in D_obs). The smallest p-value is the most important. This
 is because missing data need only be dependent on one observed variable
 for the data to be MAR. If each reported smallest p-value is significant,
 the data is MAR. See \code{vignette("background")} for definitions of M and
-D_{obs}.
+D_obs.
 }
 \examples{
 mar(airquality)

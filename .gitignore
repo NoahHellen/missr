@@ -3,3 +3,4 @@
 renv
 .Rprofile
 .pre-commit-config.yaml
+docs
