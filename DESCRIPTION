@@ -1,0 +1,22 @@
+Package: missr
+Title: Classify Missing Data As MCAR, MAR, or MNAR
+Version: 0.0.1
+Authors@R:
+    person("Noah", "Hellen", "William Trelawny", "noahhellen@gmail.com", role = c("aut", "cre"))
+Description: This package classifies missing data as MCAR, MAR, or MNAR.
+License: file LICENSE
+URL: https://github.com/NoahHellen/missr
+Depends: R (>= 3.0.2)
+Imports:
+    tibble
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Maintainer: Noah Hellen <noahhellen@gmail.com>

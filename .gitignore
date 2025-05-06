@@ -1,0 +1,5 @@
+.Rproj.user
+.git/
+renv
+.Rprofile
+.pre-commit-config.yaml

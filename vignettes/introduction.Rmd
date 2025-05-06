@@ -1,0 +1,30 @@
+---
+title: "Introduction to missr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## What is missing data?
+
+Missing data is defined as "data that we intended to collect, but for one reason or another were unable to" \[1].
+
+## The problem of missing data
+
+Missing data represents a loss of information, and so reduces the statistical power of a study \[2].
+
+## Why was missr created?
+
+There is a lack of information and software on practically categorising missing data.
+
+## How do I use missr?
+
+## References
+
+[1] Carpenter JR, Kenward MG. Missing Data in Randomised Controlled Trials: A Practical Guide. Health Technology Assessment
+Methodology Programme; 2007. Available from: https://researchonline.lshtm.ac.uk/id/eprint/4018500.
+
+[2] Pham TM, Pandis N, White IR. Missing data: Issues, concepts, methods. Seminars in Orthodontics. 2024;30(1):37-44. Statis-
+tics every orthodontist should know. Available from: https://www.sciencedirect.com/science/article/pii/S1073874624000082.
