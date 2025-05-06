@@ -13,45 +13,58 @@ knitr::opts_chunk$set(
 )
 ```
 
-# missr
+# missr <img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/NoahHellen/missr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/NoahHellen/missr/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/NoahHellen/missr/graph/badge.svg)](https://app.codecov.io/gh/NoahHellen/missr)
 <!-- badges: end -->
 
-The goal of missr is to ...
+The goal of missr is to help you classify missing data as MCAR, MAR, or MNAR. It does this by providing:
+- Statistical tests for MCAR and MAR:
+    - `mcar()`
+    - `mar()`
+- Process of elimination for MNAR:
+    - `mnar()`
 
 ## Installation
 
-You can install the development version of missr from [GitHub](https://github.com/) with:
+You can install missr from CRAN:
 
-``` r
-# install.packages("pak")
-pak::pak("NoahHellen/missr")
+```{r eval = FALSE}
+install.packages("missr")
 ```
 
-## Example
+Or you can install the development version on github using `remotes`:
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(missr)
-## basic example code
+```{r eval = FALSE}
+# install.packages("remotes")
+remotes::install_github("NoahHellen/missr")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Examples
 
-```{r cars}
-summary(cars)
+- Testing for MCAR.
+    - Null hypothesis is that data is MCAR; if the p-value is not significant, there is evidence the data is MCAR.
+
+```{r eval = FALSE}
+mcar(data)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+- Testing for MAR.
+    - Each null hypothesis is that data is not MAR; if each p-value is significant, there is evidence the data is MAR.
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r eval = FALSE}
+mar(data)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+- Testing for MNAR.
+    - No new tests, simply a process of elimination.
+
+```{r eval = FALSE}
+mnar(data)
+```
+
+## License
+
+missr has an MIT license, as found in the LICENSE file.
