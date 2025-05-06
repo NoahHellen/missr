@@ -2,7 +2,7 @@ Package: missr
 Title: Classify Missing Data As MCAR, MAR, or MNAR
 Version: 0.0.1
 Authors@R:
-    person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre"))
+    person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Noah Hellen <noahhellen@gmail.com>
 Description: This package classifies missing data as MCAR, MAR, or MNAR.
 License: file LICENSE

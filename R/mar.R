@@ -1,6 +1,7 @@
 #' Missing at random (MAR) test
 #'
 #' @description
+#' `r lifecycle::badge("stable")`
 #' `mar()` performs multiple logistic regressions to test for MAR.
 #' The null hypothesis for each is that the data are not MAR.
 #'
