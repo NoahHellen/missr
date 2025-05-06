@@ -56,41 +56,58 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="missr">missr<a class="anchor" aria-label="anchor" href="#missr"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="missr-">missr <a class="anchor" aria-label="anchor" href="#missr-"></a>
 </h1>
 </div>
 <!-- badges: start -->
 
-<p>The goal of missr is to …</p>
+<p>The goal of missr is to help you classify missing data as MCAR, MAR, or MNAR. It does this by providing: - Statistical tests for MCAR and MAR: - <code>mcar()</code> - <code><a href="reference/mar.html">mar()</a></code> - Process of elimination for MNAR: - <code>mnar()</code></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of missr from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install missr from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"NoahHellen/missr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"missr"</span><span class="op">)</span></span></code></pre></div>
+<p>Or you can install the development version on github using <code>remotes</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"NoahHellen/missr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/NoahHellen/missr" class="external-link">missr</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
+<ul>
+<li>Testing for MCAR.
+<ul>
+<li>Null hypothesis is that data is MCAR; if the p-value is not significant, there is evidence the data is MCAR.</li>
+</ul>
+</li>
+</ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
-<span><span class="co">#&gt;      speed           dist       </span></span>
-<span><span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span></span>
-<span><span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span></span>
-<span><span class="co">#&gt;  Median :15.0   Median : 36.00  </span></span>
-<span><span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span></span>
-<span><span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span></span>
-<span><span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+<code class="sourceCode R"><span><span class="fu">mcar</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Testing for MAR.
+<ul>
+<li>Each null hypothesis is that data is not MAR; if each p-value is significant, there is evidence the data is MAR.</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/mar.html">mar</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Testing for MNAR.
+<ul>
+<li>No new tests, simply a process of elimination.</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">mnar</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>missr has an MIT license, as found in the LICENSE file.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
