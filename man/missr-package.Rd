@@ -18,7 +18,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Noah William Trelawny Hellen \email{noahhellen@gmail.com}
+\strong{Maintainer}: Noah William Trelawny Hellen \email{noahhellen@gmail.com} [copyright holder]
 
 }
 \keyword{internal}

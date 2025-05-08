@@ -20,6 +20,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} with m rows and six columns:
 interpretation}
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 \code{mar()} performs multiple logistic regressions to test for MAR.
 The null hypothesis for each is that the data are not MAR.
 }

@@ -29,7 +29,7 @@ You can install missr from CRAN:
 install.packages("missr")
 ```
 
-Or you can install the development version on github using `remotes`:
+Or you can install the development version on github using remotes:
 
 ``` r
 # install.packages("remotes")

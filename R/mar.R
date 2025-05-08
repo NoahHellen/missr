@@ -24,7 +24,7 @@
 #' \item{variables}{Corresponding variables of `p_values`}
 #' \item{combined}{Paired `p_values` and `variables` for easier
 #' interpretation}
-#'
+#' 
 #' @export
 #'
 #' @examples
@@ -54,7 +54,7 @@ mar <- function(data) {
   # Columns with missing data
   cols_miss <- names(ind)[sapply(ind, function(col) any(col == 0))]
 
-  # Lists to store regression information
+  # Lists to store p-values and corresponding variables
   p_vals <- list()
   vars <- list()
   comb <- list()
