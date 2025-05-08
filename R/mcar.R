@@ -13,6 +13,7 @@
 #' test and definitions of the variables shown (in brackets).
 #'
 #' @param data A data frame.
+#' @param debug A logical value used only for unit testing.
 #'
 #' @return A `data.frame`:
 #' \item{statistic}{The d^2 statistic}

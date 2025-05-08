@@ -2,12 +2,14 @@
 % Please edit documentation in R/mcar.R
 \name{mcar}
 \alias{mcar}
-\title{Missing completely at random (MCAR) test}
+\title{Little's Missing completely at random (MCAR) test}
 \usage{
-mcar(data)
+mcar(data, debug = FALSE)
 }
 \arguments{
 \item{data}{A data frame.}
+
+\item{debug}{A logical value used only for unit testing.}
 }
 \value{
 A \code{data.frame}:
