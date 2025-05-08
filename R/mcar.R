@@ -13,18 +13,18 @@
 #' test and definitions of the variables shown (in brackets).
 #'
 #' @param data A data frame.
-#' 
+#'
 #' @return A `data.frame`:
 #' \item{statistic}{The d^2 statistic}
 #' \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 #' \item{p_val}{P-value of the test}
 #' \item{missing_patterns}{Number of missing patterns}
-#' 
+#'
 #' @note Code is adapted from `mcar_test()` from the naniar package
 #' using base R instead of the tidyverse.
-#' 
+#'
 #' @export
-#' 
+#'
 #' @examples
 #' mcar(airquality)
 #'
@@ -70,7 +70,6 @@ mcar <- function(data) {
 
   # Compute summands of equation (5) from [1] separately
   for (j in seq_along(grouped_y)) {
-
     # Find group data (S_j) and code-equivalent of (D_j)
     group_data <- grouped_y[[j]][, 1:p]
     complete_cols <- which(colSums(!is.na(group_data)) > 0) # (D_j)
@@ -105,7 +104,6 @@ mcar <- function(data) {
     p_val = p_val,
     missing_patterns = total_miss
   )
-
 }
 
 mcar_test_base <- function(data) {

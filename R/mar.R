@@ -24,7 +24,7 @@
 #' \item{variables}{Corresponding variables of `p_values`}
 #' \item{combined}{Paired `p_values` and `variables` for easier
 #' interpretation}
-#' 
+#'
 #' @export
 #'
 #' @examples
