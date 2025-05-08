@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-test_that("mcar: input check test", {
-  vector <- c(1, 2)
-  matrix <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
-  expect_error(mcar(vector), "Expected a data.frame object.")
-  expect_error(mcar(matrix), "Expected a data.frame object.")
-})
-=======
 test_vector <- c(1, 2)
 test_no_miss_matrix <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
 test_num_matrix <- matrix(c(1, NA, 3, 4), nrow = 2, ncol = 2)
@@ -33,4 +25,3 @@ test_that("mcar() computes correct number of variables", {
   debug_p <- getOption("p")
   expect_equal(debug_p, 2)
 })
->>>>>>> 0a6dfbe (Using options() to add more tests)
