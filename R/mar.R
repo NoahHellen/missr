@@ -38,15 +38,12 @@ mar <- function(data) {
     stop("There is no missing data in this dataset.")
   }
   if (any(sapply(data, is.character))) {
-    warning("All non-numeric columns were encoded for regression -
-    verify encodings are interpretable.")
+    warning("Non-numeric columns encoded - verify
+    interpretable.")
   }
 
   # Encode non-numeric columns
-  data[] <- lapply(
-    data,
-    function(x) if (is.numeric(x)) x else as.numeric(factor(x))
-  )
+  data <- data.frame(data.matrix(data))
 
   # Indicator matrix
   ind <- as.data.frame(ifelse(is.na(data), 0, 1))

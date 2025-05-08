@@ -1,4 +1,4 @@
-#' Missing completely at random (MCAR) test
+#' Little's Missing completely at random (MCAR) test
 #'
 #' @description
 #' `r lifecycle::badge("stable")`
@@ -32,17 +32,25 @@
 #' \[1\] Little RJA. A Test of Missing Completely at Random for
 #' Multivariate Data with Missing Values. Journal of the
 #' American Statistical Association. 1988;83(404):1198-202.
-mcar <- function(data) {
+mcar <- function(data, debug = FALSE) {
   # Input checks
   if (!is.data.frame(data)) {
     stop("Expected a data.frame object.")
   }
+  if (!anyNA(data)) {
+    stop("There is no missing data in this dataset.")
+  }
+  if (any(sapply(data, is.character))) {
+    warning("Non-numeric columns encoded - verify
+    interpretable.")
+  }
 
-  # Data matrix (y)
-  y <- data
+  # Data matrix (y) with encoded non-numeric columns
+  y <- data.frame(data.matrix(data))
 
   # Number of variables (p)
   p <- ncol(y)
+  if (debug) options(p = p)
 
   # Missing indicator matrix (r)
   ind <- 1 * !is.na(y)
@@ -104,6 +112,7 @@ mcar <- function(data) {
     p_val = p_val,
     missing_patterns = total_miss
   )
+<<<<<<< HEAD
 }
 
 mcar_test_base <- function(data) {
@@ -170,3 +179,6 @@ mcar_test_base <- function(data) {
     missing.patterns = n_miss_pattern
   )
 }
+=======
+}
+>>>>>>> 0a6dfbe (Using options() to add more tests)
