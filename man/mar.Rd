@@ -4,13 +4,15 @@
 \alias{mar}
 \title{Missing at random (MAR) test}
 \usage{
-mar(data)
+mar(data, debug = FALSE)
 }
 \arguments{
-\item{data}{A data frame.}
+\item{data}{A \code{data.frame}.}
+
+\item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A \code{\link[tibble:tibble]{tibble::tibble()}} with m rows and six columns:
+A \code{tibble::tibble}:
 \item{missing}{Columns of M with missing data}
 \item{p_value}{Smallest p-value of each regression}
 \item{explanatory}{Corresponding variable of \code{p_value}}

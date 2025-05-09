@@ -12,7 +12,10 @@ test_that("mcar() accepts as input a data.frame only", {
 })
 
 test_that("mcar() accepts data with missing values only", {
-  expect_error(mcar(test_no_miss_df), "There is no missing data in this dataset.")
+  expect_error(
+    mcar(test_no_miss_df),
+    "There is no missing data in this dataset."
+  )
 })
 
 test_that("mcar() warns users of non-numeric encoding", {
@@ -22,6 +25,28 @@ test_that("mcar() warns users of non-numeric encoding", {
 
 test_that("mcar() computes correct number of variables", {
   mcar(test_num_df, debug = TRUE)
-  debug_p <- getOption("p")
-  expect_equal(debug_p, 2)
+  p <- getOption("p")
+  expect_equal(p, 2)
+})
+
+test_that("mcar() computes correct indicator matrix", {
+  mcar(test_num_df, debug = TRUE)
+  ind <- getOption("ind")
+  expected <- matrix(c(1, 0, 1, 1), nrow = 2)
+  colnames(expected) <- colnames(ind)
+  expect_equal(ind, expected)
+})
+
+test_that("mcar() computes correct total missing patterns", {
+  mcar(test_num_df, debug = TRUE)
+  total_miss <- getOption("total_miss")
+  expect_equal(total_miss, 2)
+})
+
+test_that("mcar() calculates correct statistics", {
+  output <- mcar(test_num_df)
+  expect_equal(output$statistic, 2)
+  expect_equal(output$degrees_freedom, 1)
+  expect_equal(output$p_val, 0.157299207)
+  expect_equal(output$missing_patterns, 2)
 })

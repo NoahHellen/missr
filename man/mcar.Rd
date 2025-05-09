@@ -12,7 +12,7 @@ mcar(data, debug = FALSE)
 \item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A \code{data.frame}:
+A \code{data.frame()}:
 \item{statistic}{The d^2 statistic}
 \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 \item{p_val}{P-value of the test}

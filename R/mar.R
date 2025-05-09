@@ -14,9 +14,10 @@
 #' the data is MAR. See `vignette("background")` for definitions of M and
 #' D_obs.
 #'
-#' @param data A data frame.
+#' @param data A `data.frame`.
+#' @param debug A logical value used only for unit testing.
 #'
-#' @return A [tibble::tibble()] with m rows and six columns:
+#' @return A `tibble::tibble`:
 #' \item{missing}{Columns of M with missing data}
 #' \item{p_value}{Smallest p-value of each regression}
 #' \item{explanatory}{Corresponding variable of `p_value`}
@@ -29,8 +30,8 @@
 #'
 #' @examples
 #' mar(airquality)
-mar <- function(data) {
-  # Inputs checks
+mar <- function(data, debug = FALSE) {
+  # Input checks
   if (!is.data.frame(data)) {
     stop("Expected a data.frame object.")
   }
@@ -38,8 +39,7 @@ mar <- function(data) {
     stop("There is no missing data in this dataset.")
   }
   if (any(sapply(data, is.character))) {
-    warning("Non-numeric columns encoded - verify
-    interpretable.")
+    warning("Non-numeric columns encoded - verify interpretable.")
   }
 
   # Encode non-numeric columns
@@ -47,9 +47,11 @@ mar <- function(data) {
 
   # Indicator matrix
   ind <- as.data.frame(ifelse(is.na(data), 0, 1))
+  if (debug) options(ind = ind)
 
   # Columns with missing data
   cols_miss <- names(ind)[sapply(ind, function(col) any(col == 0))]
+  if (debug) options(cols_miss = cols_miss)
 
   # Lists to store p-values and corresponding variables
   p_vals <- list()
@@ -62,15 +64,20 @@ mar <- function(data) {
     vars[[col]] <- character()
     for (j in seq_len(ncol(data))) {
       s <- summary(stats::lm(ind[[col]] ~ data[[j]]))
-      p_vals[[col]][[j]] <- s$coefficients[2, 4]
+      # Defend against NA regression values
+      if (nrow(s$coefficients) >= 2) {
+        p_vals[[col]][[j]] <- s$coefficients["data[[j]]", "Pr(>|t|)"]
+      } else {
+        p_vals[[col]][[j]] <- NA
+      }
       vars[[col]][[j]] <- colnames(data)[j]
     }
-    comb[[col]] <- stats::setNames(unlist(p_vals[[i]]), vars[[i]])
+    comb[[col]] <- stats::setNames(unlist(p_vals[[col]]), vars[[col]])
   }
   tibble::tibble(
     missing = cols_miss,
-    p_value = sapply(p_vals, min),
-    explanatory = mapply(function(p, v) v[which.min(p)], p_vals, vars),
+    p_value = unname(sapply(p_vals, min)),
+    explanatory = unname(mapply(function(p, v) v[which.min(p)], p_vals, vars)),
     p_values = p_vals,
     variables = vars,
     combined = comb

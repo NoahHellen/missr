@@ -15,7 +15,7 @@
 #' @param data A data frame.
 #' @param debug A logical value used only for unit testing.
 #'
-#' @return A `data.frame`:
+#' @return A `data.frame()`:
 #' \item{statistic}{The d^2 statistic}
 #' \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 #' \item{p_val}{P-value of the test}
@@ -55,6 +55,7 @@ mcar <- function(data, debug = FALSE) {
 
   # Missing indicator matrix (r)
   ind <- 1 * !is.na(y)
+  if (debug) options(ind = ind)
 
   # MLE with EM algorithm for (mu) and (Sigma)
   s <- norm::prelim.norm(data.matrix(y))
@@ -68,6 +69,7 @@ mcar <- function(data, debug = FALSE) {
   miss_pattern <- apply(ind, 1, paste0, collapse = "")
   miss_pattern <- as.integer(factor(miss_pattern))
   total_miss <- length(unique(miss_pattern))
+  if (debug) options(total_miss = total_miss)
 
   # Split data by group (S)
   grouped_y <- cbind(y, miss_pattern)
