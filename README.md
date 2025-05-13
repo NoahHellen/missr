@@ -9,7 +9,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/NoahHellen/missr/graph/badge.svg)](https://app.codecov.io/gh/NoahHellen/missr)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The goal of missr is to help you classify missing data as MCAR, MAR, or

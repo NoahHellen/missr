@@ -17,7 +17,7 @@ Missing data represents a loss of information, and so reduces the statistical po
 
 ## Why can I not just impute the missing data?
 
-Different methods for handling missing data (e.g. mean imputation) can introduce bias when estimating statistics \[3]. 
+Different methods for handling missing data (e.g. mean imputation) can introduce bias when estimating statistics \[3].
 Therefore, to produce unbiased estimates, one must choose the correct method. In order to do this, one must understand and categorise
 the pattern of missingness in the dataset. Having categorised the missingness as MCAR, MAR, or MNAR (see `vignette("background")`)
 one can then choose the correct method for handling the missing data without introducing bias.
@@ -45,9 +45,9 @@ There is a lack of information and software on practically categorising missing 
 ## References
 
 [1] Carpenter JR, Kenward MG. Missing Data in Randomised Controlled Trials: A Practical Guide. Health Technology Assessment
-Methodology Programme; 2007. Available from: https://researchonline.lshtm.ac.uk/id/eprint/4018500.
+Methodology Programme; 2007.
 
 [2] Pham TM, Pandis N, White IR. Missing data: Issues, concepts, methods. Seminars in Orthodontics. 2024;30(1):37-44. Statis-
-tics every orthodontist should know. Available from: https://www.sciencedirect.com/science/article/pii/S1073874624000082.
+tics every orthodontist should know.
 
 [3] van Buuren S. Flexible Imputation of Missing Data, Second Edition. Chapman and Hall/CRC; 2018.
