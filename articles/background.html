@@ -6,6 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Background • missr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -20,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">missr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,44 +93,118 @@ missing data can be formalised from a probabilistic perspective.</p>
 <div class="section level2">
 <h2 id="mathematical-formalism">Mathematical formalism<a class="anchor" aria-label="anchor" href="#mathematical-formalism"></a>
 </h2>
-<p>The following formalism is taken from [1].</p>
-<p>Define
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mi>Y</mi><mo>,</mo><mi>X</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">D = \{Y,X\}</annotation></semantics></math>
-as the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n \times m</annotation></semantics></math>
-data matrix consisting of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n \times m-1</annotation></semantics></math>
-predictor
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>)
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n \times 1</annotation></semantics></math>
-target
-(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>)
-variables.</p>
-<p>Note that some authors consider
+<p>The following unifies the formalisms in [1], [2], and [3].</p>
+<ul>
+<li>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
-as a tuple [2].</p>
-<p>Also define
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
-as the
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n \times m</annotation></semantics></math>
-missingness indicator matrix. Each element is
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
-or
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
-corresponding to observed or missing values in
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
-respectively.</p>
-<p>Finally, define
+:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n \times p</annotation></semantics></math>
+data matrix
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>D</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><mo>,</mo><msub><mi>D</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">D = (D_{obs}, D_{mis})</annotation></semantics></math></li>
+</ul>
+</li>
+<li>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">D_{obs}</annotation></semantics></math>
-and
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">D_{mis}</annotation></semantics></math>
-as the observed and missing portions of
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>.
-In this way,
+: observed values of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
-can be loosely partitioned as
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mo stretchy="false" form="prefix">{</mo><msub><mi>D</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><mo>,</mo><msub><mi>D</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">D = \{D_{obs}, D_{mis}\}</annotation></semantics></math>.</p>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">D_{mis}</annotation></semantics></math>
+: unobserved values of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>×</mo><mi>p</mi></mrow><annotation encoding="application/x-tex">n \times p</annotation></semantics></math>
+missingness indicator matrix, where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>M</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">M_{ij} = 1</annotation></semantics></math>
+if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>D</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">D_{ij}</annotation></semantics></math>
+is observed and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0</mn><annotation encoding="application/x-tex">0</annotation></semantics></math>
+otherwise</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+: distinct missing data pattern in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+: total
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>j</mi></msub><annotation encoding="application/x-tex">S_j</annotation></semantics></math>
+: set of cases with missing data pattern
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>m</mi><mi>j</mi></msub><annotation encoding="application/x-tex">m_j</annotation></semantics></math>
+: number of cases in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>j</mi></msub><annotation encoding="application/x-tex">S_j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>p</mi><mi>j</mi></msub><annotation encoding="application/x-tex">p_j</annotation></semantics></math>
+: number of observed variables in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mi>j</mi></msub><annotation encoding="application/x-tex">S_j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝛍</mi><annotation encoding="application/x-tex">\boldsymbol{\mu}</annotation></semantics></math>
+: population mean vector</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>
+: population covariance matrix</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\boldsymbol{\mu}}</annotation></semantics></math>
+: ML estimate of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>𝛍</mi><annotation encoding="application/x-tex">\boldsymbol{\mu}</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\Sigma}</annotation></semantics></math>
+: ML estimate of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Σ</mi><annotation encoding="application/x-tex">\Sigma</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Q</mi><mi>j</mi></msub><annotation encoding="application/x-tex">Q_j</annotation></semantics></math>
+:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>×</mo><msub><mi>p</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">p \times p_j</annotation></semantics></math>
+matrix indicating which variables are observed for pattern
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">\hat{\boldsymbol{\mu}}_{obs,j}</annotation></semantics></math>
+: subset of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\boldsymbol{\mu}}</annotation></semantics></math>
+given by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>≡</mo><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><msub><mi>Q</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\hat{\boldsymbol{\mu}}_{obs,j} \equiv \hat{\boldsymbol{\mu}}Q_j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>D</mi><mo accent="true">‾</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">\bar{D}_{obs, j}</annotation></semantics></math>
+: vector of sample means of observed variables in pattern
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>j</mi><annotation encoding="application/x-tex">j</annotation></semantics></math>.</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">\hat{\Sigma}_{obs,j}</annotation></semantics></math>
+: subset of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{\Sigma}</annotation></semantics></math>
+given by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>≡</mo><msubsup><mi>Q</mi><mi>j</mi><mi>⊤</mi></msubsup><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><msub><mi>Q</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">\hat{\Sigma}_{obs,j} \equiv Q_j^{\top}\hat{\Sigma} Q_j</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>Σ</mi><mo accent="true">̃</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">\tilde{\Sigma}_{obs, j}</annotation></semantics></math>
+: accounts for degrees of freedom in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><annotation encoding="application/x-tex">\hat{\Sigma}_{obs,j}</annotation></semantics></math>
+given by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>Σ</mi><mo accent="true">̃</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>=</mo><mfrac><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac><msub><mover><mi>Σ</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\tilde{\Sigma}_{obs, j} = \frac{n}{n-1}\hat{\Sigma}_{obs,j}</annotation></semantics></math>
+</li>
+<li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>d</mi><mn>2</mn></msup><annotation encoding="application/x-tex">d^2</annotation></semantics></math>
+: statistic used to test MCAR where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>d</mi><mn>2</mn></msup><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></msubsup><msub><mi>m</mi><mi>j</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>D</mi><mo accent="true">‾</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>−</mo><msub><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><msubsup><mover><mi>Σ</mi><mo accent="true">̃</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msubsup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mover><mi>D</mi><mo accent="true">‾</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo>−</mo><msub><mover><mi>𝛍</mi><mo accent="true">̂</mo></mover><mrow><mi>o</mi><mi>b</mi><mi>s</mi><mo>,</mo><mi>j</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>⊤</mi></msup></mrow><annotation encoding="application/x-tex">d^2 = \sum_{j=1}^J m_j (\bar{D}_{obs, j} - \hat{\boldsymbol{\mu}}_{obs, j}) \tilde{\Sigma}_{obs, j}^{-1}
+(\bar{D}_{obs, j} - \hat{\boldsymbol{\mu}}_{obs, j})^{\top}</annotation></semantics></math>
+=</li>
+</ul>
 <p>The definitions of MCAR, MAR, and MNAR are based on the probability
 distribution of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>.</p>
@@ -183,7 +262,12 @@ and
 <p>[1] King G, Honaker J, Joseph A, Scheve K. Analyzing Incomplete
 Political Science Data: An Alternative Algorithm for Multiple
 Imputation. American Political Science Review. 2001 March.</p>
-<p>[2] Joseph G Ibrahim HZ, Tang N. Model Selection Criteria for
+<p>[2] Little RJA. A Test of Missing Completely at Random for
+Multivariate Data with Missing Values. Journal of the American
+Statistical Association. 1988;83(404):1198-202.</p>
+<p>[3] Rubin DB. Inference and Missing Data. Biometrika.
+1976;63(3):581-92. Available from: <a href="http://www.jstor.org/stable/2335739" class="external-link uri">http://www.jstor.org/stable/2335739</a></p>
+<p>[4] Joseph G Ibrahim HZ, Tang N. Model Selection Criteria for
 Missing-Data Problems Using the EM Algorithm. Journal of the American
 Statistical Asso- ciation. 2008;103(484):1648-58. PMID: 19693282.
 Available from: https: //doi.org/10.1198/016214508000001057. pages 7</p>

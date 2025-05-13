@@ -1,18 +1,22 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/LICENSE-text.html</loc></url>
-<url><loc>/articles/background.html</loc></url>
-<url><loc>/articles/index.html</loc></url>
-<url><loc>/articles/introduction.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/news/index.html</loc></url>
-<url><loc>/reference/companydata.html</loc></url>
-<url><loc>/reference/healthcheck.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/mar.html</loc></url>
-<url><loc>/reference/mcar.html</loc></url>
-<url><loc>/reference/missr-package.html</loc></url>
-<url><loc>/reference/pollutionlevels.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/404.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/LICENSE-text.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/LICENSE.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/articles/background.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/articles/index.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/articles/introduction.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/authors.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/index.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/news/index.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/animalhealth.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/companydata.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/healthcheck.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/index.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/mar.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/mcar.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/missr-package.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/mnar.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/pollutionlevels.html</loc></url>
+<url><loc>https://noahhellen.github.io/missr/reference/testscores.html</loc></url>
 </urlset>
 

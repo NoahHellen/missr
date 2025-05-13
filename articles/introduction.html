@@ -6,6 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Introduction to missr • missr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -20,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">missr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,14 +83,53 @@ one reason or another were unable to” [1].</p>
 statistical power of a study [2].</p>
 </div>
 <div class="section level2">
+<h2 id="why-can-i-not-just-impute-the-missing-data">Why can I not just impute the missing data?<a class="anchor" aria-label="anchor" href="#why-can-i-not-just-impute-the-missing-data"></a>
+</h2>
+<p>Different methods for handling missing data (e.g. mean imputation)
+can introduce bias when estimating statistics [3]. Therefore, to produce
+unbiased estimates, one must choose the correct method. In order to do
+this, one must understand and categorise the pattern of missingness in
+the dataset. Having categorised the missingness as MCAR, MAR, or MNAR
+(see <code><a href="../articles/background.html">vignette("background")</a></code>) one can then choose the
+correct method for handling the missing data without introducing
+bias.</p>
+</div>
+<div class="section level2">
+<h2 id="how-does-missr-work">How does missr work?<a class="anchor" aria-label="anchor" href="#how-does-missr-work"></a>
+</h2>
+<p>This package provides three functions — <code><a href="../reference/mcar.html">mcar()</a></code>,
+<code><a href="../reference/mar.html">mar()</a></code>, and <code><a href="../reference/mnar.html">mnar()</a></code> — to help you categorise the
+missingness in a dataset.</p>
+<p>This package also provides several toy datasets:</p>
+<ul>
+<li>MCAR
+<ul>
+<li><code>animalhealth</code></li>
+<li><code>pollutionlevels</code></li>
+</ul>
+</li>
+<li>MAR
+<ul>
+<li><code>healthcheck</code></li>
+</ul>
+</li>
+<li>MNAR
+<ul>
+<li><code>companydata</code></li>
+</ul>
+</li>
+<li>No missing data
+<ul>
+<li><code>testscores</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section level2">
 <h2 id="why-was-missr-created">Why was missr created?<a class="anchor" aria-label="anchor" href="#why-was-missr-created"></a>
 </h2>
 <p>There is a lack of information and software on practically
 categorising missing data.</p>
-</div>
-<div class="section level2">
-<h2 id="how-do-i-use-missr">How do I use missr?<a class="anchor" aria-label="anchor" href="#how-do-i-use-missr"></a>
-</h2>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -96,6 +140,8 @@ Programme; 2007. Available from: <a href="https://researchonline.lshtm.ac.uk/id/
 <p>[2] Pham TM, Pandis N, White IR. Missing data: Issues, concepts,
 methods. Seminars in Orthodontics. 2024;30(1):37-44. Statis- tics every
 orthodontist should know. Available from: <a href="https://www.sciencedirect.com/science/article/pii/S1073874624000082" class="external-link uri">https://www.sciencedirect.com/science/article/pii/S1073874624000082</a>.</p>
+<p>[3] van Buuren S. Flexible Imputation of Missing Data, Second
+Edition. Chapman and Hall/CRC; 2018.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
