@@ -4,16 +4,18 @@
 \name{missr-package}
 \alias{missr}
 \alias{missr-package}
-\title{missr: Classify Missing Data As MCAR, MAR, or MNAR}
+\title{missr: Classify Missing Data as MCAR, MAR, or MNAR}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This package classifies missing data as MCAR, MAR, or MNAR.
+Classify missing data as MCAR, MAR, or MNAR. This step is required before handling missing data (e.g. mean imputation) so that bias is not introduced.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/NoahHellen/missr}
+  \item \url{https://noahhellen.github.io/missr/}
+  \item Report bugs at \url{https://github.com/NoahHellen/missr/issues}
 }
 
 }

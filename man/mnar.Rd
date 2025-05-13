@@ -16,13 +16,13 @@ A list:
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
-\code{mnar()} presents the statistics from \code{mar()} and \code{mcar()}. If at least one
-p-value in \code{mar()} is not significant, and the p-value in \code{mcar()} is
+\code{mnar()} presents the statistics from \code{\link[=mar]{mar()}} and \code{\link[=mcar]{mcar()}}. If at least one
+p-value in \code{\link[=mar]{mar()}} is not significant, and the p-value in \code{\link[=mcar]{mcar()}} is
 significant then the data is MNAR.
 }
 \details{
 There exists no formal test for MNAR data. This function therefore
-presents the statistics for the tests in \code{mar()} and \code{mcar()}. If the
+presents the statistics for the tests in \code{\link[=mar]{mar()}} and \code{\link[=mcar]{mcar()}}. If the
 results suggest the data is neither MAR nor MCAR, one can use process of
 elimination to deduce that the data is MNAR.
 }

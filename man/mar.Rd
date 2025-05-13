@@ -12,12 +12,12 @@ mar(data, debug = FALSE)
 \item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A \code{tibble::tibble()}:
-\item{missing}{Columns of M with missing data}
-\item{p_value}{Smallest p-value of each regression}
-\item{explanatory}{Corresponding variable of \code{p_value}}
-\item{p_values}{The p-values of each regression}
-\item{variables}{Corresponding variables of \code{p_values}}
+A \code{\link[tibble:tibble]{tibble::tibble()}}:
+\item{missing}{Column of M with missing data}
+\item{p_value}{Smallest p-value of the logistic regressions}
+\item{explanatory}{Variable corresponding to \code{p_value}}
+\item{p_values}{The p-values of the logistic regressions}
+\item{variables}{Variables corresponding to \code{p_values}}
 \item{combined}{Paired \code{p_values} and \code{variables} for easier
 interpretation}
 }

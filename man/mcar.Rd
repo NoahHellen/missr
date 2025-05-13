@@ -12,7 +12,7 @@ mcar(data, debug = FALSE)
 \item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A data frame:
+A \code{\link[tibble:tibble]{tibble::tibble()}}:
 \item{statistic}{The d^2 statistic}
 \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 \item{p_val}{P-value of the test}
@@ -21,7 +21,7 @@ A data frame:
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#stable}{\figure{lifecycle-stable.svg}{options: alt='[Stable]'}}}{\strong{[Stable]}}
 \code{mcar()} performs Little's MCAR test to test for MCAR.
-The null hypothesis is that the data is not MCAR.
+The null hypothesis is that the data is MCAR.
 }
 \details{
 This function reproduces the d^2 statistic in equation (5) from [1].

@@ -1,23 +1,23 @@
 Package: missr
 Title: Classify Missing Data as MCAR, MAR, or MNAR
-Version: 0.0.1
+Version: 0.0.0.9000
 Authors@R:
     person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Noah Hellen <noahhellen@gmail.com>
 Description: Classify missing data as MCAR, MAR, or MNAR. This step is
-    required before handling missing data (e.g. mean imputation), so that
+    required before handling missing data (e.g. mean imputation) so that
     bias is not introduced.
 License: MIT + file LICENSE
-URL: https://github.com/NoahHellen/missr
+URL: https://github.com/NoahHellen/missr, https://noahhellen.github.io/missr/
 BugReports: https://github.com/NoahHellen/missr/issues
 Depends:
     R (>= 3.5)
 Imports:
     norm,
-    tibble
+    tibble,
+    lifecycle
 Suggests:
     knitr,
-    lifecycle,
     rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder:
