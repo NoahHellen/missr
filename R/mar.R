@@ -14,22 +14,22 @@
 #' the data is MAR. See `vignette("background")` for definitions of M and
 #' D_obs.
 #'
-#' @param data A `data.frame`.
+#' @param data A data frame.
 #' @param debug A logical value used only for unit testing.
 #'
-#' @return A `tibble::tibble`:
-#' \item{missing}{Columns of M with missing data}
-#' \item{p_value}{Smallest p-value of each regression}
-#' \item{explanatory}{Corresponding variable of `p_value`}
-#' \item{p_values}{The p-values of each regression}
-#' \item{variables}{Corresponding variables of `p_values`}
+#' @return A [tibble::tibble()]:
+#' \item{missing}{Column of M with missing data}
+#' \item{p_value}{Smallest p-value of the logistic regressions}
+#' \item{explanatory}{Variable corresponding to `p_value`}
+#' \item{p_values}{The p-values of the logistic regressions}
+#' \item{variables}{Variables corresponding to `p_values`}
 #' \item{combined}{Paired `p_values` and `variables` for easier
 #' interpretation}
 #'
 #' @export
 #'
 #' @examples
-#' mar(airquality)
+#' mar(healthcheck)
 mar <- function(data, debug = FALSE) {
   # Input checks
   if (!is.data.frame(data)) {

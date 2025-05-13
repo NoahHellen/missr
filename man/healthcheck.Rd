@@ -5,7 +5,7 @@
 \alias{healthcheck}
 \title{Simulated health check data (MAR)}
 \format{
-A (200 x 5) \code{data.frame}:
+A 200 x 5 data frame:
 \describe{
 \item{bone_mass}{Bone mass of individual (kg)}
 \item{body_fat}{Body fat percentage of individual}

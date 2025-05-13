@@ -5,3 +5,8 @@ renv.lock
 .Rprofile
 .pre-commit-config.yaml
 docs
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto

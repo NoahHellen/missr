@@ -15,11 +15,32 @@ Missing data is defined as "data that we intended to collect, but for one reason
 
 Missing data represents a loss of information, and so reduces the statistical power of a study \[2].
 
+## Why can I not just impute the missing data?
+
+Different methods for handling missing data (e.g. mean imputation) can introduce bias when estimating statistics \[3]. 
+Therefore, to produce unbiased estimates, one must choose the correct method. In order to do this, one must understand and categorise
+the pattern of missingness in the dataset. Having categorised the missingness as MCAR, MAR, or MNAR (see `vignette("background")`)
+one can then choose the correct method for handling the missing data without introducing bias.
+
+## How does missr work?
+
+This package provides three functions — `mcar()`, `mar()`, and `mnar()` — to help you categorise the missingness in a dataset.
+
+This package also provides several toy datasets:
+
+- MCAR
+  - `animalhealth`
+  - `pollutionlevels`
+- MAR
+  - `healthcheck`
+- MNAR
+  - `companydata`
+- No missing data
+  - `testscores`
+
 ## Why was missr created?
 
 There is a lack of information and software on practically categorising missing data.
-
-## How do I use missr?
 
 ## References
 
@@ -28,3 +49,5 @@ Methodology Programme; 2007. Available from: https://researchonline.lshtm.ac.uk/
 
 [2] Pham TM, Pandis N, White IR. Missing data: Issues, concepts, methods. Seminars in Orthodontics. 2024;30(1):37-44. Statis-
 tics every orthodontist should know. Available from: https://www.sciencedirect.com/science/article/pii/S1073874624000082.
+
+[3] van Buuren S. Flexible Imputation of Missing Data, Second Edition. Chapman and Hall/CRC; 2018.

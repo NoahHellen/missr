@@ -4,10 +4,12 @@ Version: 0.0.1
 Authors@R:
     person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Noah Hellen <noahhellen@gmail.com>
-Description: Classify missing data as MCAR, MAR, or MNAR. This step is required before handling missing data
-    (e.g. mean imputation), so that bias is not introduced.
+Description: Classify missing data as MCAR, MAR, or MNAR. This step is
+    required before handling missing data (e.g. mean imputation), so that
+    bias is not introduced.
 License: MIT + file LICENSE
 URL: https://github.com/NoahHellen/missr
+BugReports: https://github.com/NoahHellen/missr/issues
 Depends:
     R (>= 3.5)
 Imports:
@@ -23,7 +25,6 @@ VignetteBuilder:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-GB
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-LazyData: true
-BugReports: https://github.com/NoahHellen/missr/issues

@@ -5,7 +5,7 @@
 \alias{pollutionlevels}
 \title{Simulated pollution level data (MCAR)}
 \format{
-A (200 x 4) \code{data.frame}:
+A 200 x 4 data frame:
 \describe{
 \item{light}{Light pollution of settlement (mag/arcsec^2)}
 \item{visual}{Visual pollution of settlement (VPI)}

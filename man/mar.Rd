@@ -7,12 +7,12 @@
 mar(data, debug = FALSE)
 }
 \arguments{
-\item{data}{A \code{data.frame}.}
+\item{data}{A data frame.}
 
 \item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A \code{tibble::tibble}:
+A \code{tibble::tibble()}:
 \item{missing}{Columns of M with missing data}
 \item{p_value}{Smallest p-value of each regression}
 \item{explanatory}{Corresponding variable of \code{p_value}}
@@ -36,5 +36,5 @@ the data is MAR. See \code{vignette("background")} for definitions of M and
 D_obs.
 }
 \examples{
-mar(airquality)
+mar(healthcheck)
 }

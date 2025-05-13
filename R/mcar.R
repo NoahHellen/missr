@@ -1,21 +1,20 @@
-#' Little's Missing completely at random (MCAR) test
+#' Little's missing completely at random (MCAR) test
 #'
 #' @description
 #' `r lifecycle::badge("stable")`
 #' `mcar()` performs Little's MCAR test to test for MCAR.
-#' The null hypothesis is that the data is not MCAR.
+#' The null hypothesis is that the data is MCAR.
 #'
 #' @details
 #' This function reproduces the d^2 statistic in equation (5) from \[1\].
 #' This statistic is used to test for MCAR. Comments reference variables
-#' from the paper (in brackets) to improve readability and traceability.
-#' See `vignette("background")` for a more thorough description of the
-#' test and definitions of the variables shown (in brackets).
+#' from `vignette("background")` (in brackets) to improve readability and
+#' traceability.
 #'
 #' @param data A data frame.
 #' @param debug A logical value used only for unit testing.
 #'
-#' @return A `data.frame()`:
+#' @return A [tibble::tibble()]:
 #' \item{statistic}{The d^2 statistic}
 #' \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 #' \item{p_val}{P-value of the test}
@@ -27,7 +26,7 @@
 #' @export
 #'
 #' @examples
-#' mcar(airquality)
+#' mcar(pollutionlevels)
 #'
 #' @references
 #' \[1\] Little RJA. A Test of Missing Completely at Random for
@@ -46,18 +45,18 @@ mcar <- function(data, debug = FALSE) {
     interpretable.")
   }
 
-  # Data matrix (y) with encoded non-numeric columns
+  # Data matrix (D) with encoded non-numeric columns
   y <- data.frame(data.matrix(data))
 
   # Number of variables (p)
   p <- ncol(y)
   if (debug) options(p = p)
 
-  # Missing indicator matrix (r)
+  # Missing indicator matrix (M)
   ind <- 1 * !is.na(y)
   if (debug) options(ind = ind)
 
-  # MLE with EM algorithm for (mu) and (Sigma)
+  # MLE with EM algorithm for (hat{mu}) and (hat{Sigma})
   s <- norm::prelim.norm(data.matrix(y))
   theta <- norm::em.norm(s, showits = FALSE)
   fit <- norm::getparam.norm(s = s, theta = theta)
@@ -79,14 +78,14 @@ mcar <- function(data, debug = FALSE) {
   d2j <- numeric()
   pj <- numeric()
 
-  # Compute summands of equation (5) from [1] separately
+  # Compute summands of equation (5) from \[1\] separately
   for (j in seq_along(grouped_y)) {
-    # Find group data (S_j) and code-equivalent of (D_j)
+    # Find group data (S_j) and code-equivalent of (Q_j)
     group_data <- grouped_y[[j]][, 1:p]
-    complete_cols <- which(colSums(!is.na(group_data)) > 0) # (D_j)
+    complete_cols <- which(colSums(!is.na(group_data)) > 0) # (Q_j)
     pj[j] <- length(complete_cols)
 
-    # Find (bar{y_{obs,j}} - hat{u_{obs,j}})
+    # Find (bar{D_{obs,j}} - hat{u_{obs,j}})
     group_mu <- colMeans(group_data, na.rm = TRUE) - mu
     group_mu <- group_mu[complete_cols]
 
@@ -109,7 +108,7 @@ mcar <- function(data, debug = FALSE) {
   df <- sum(pj) - p
   p_val <- 1 - stats::pchisq(d2, df)
 
-  data.frame(
+  tibble::tibble(
     statistic = d2,
     degrees_freedom = df,
     p_val = p_val,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mcar.R
 \name{mcar}
 \alias{mcar}
-\title{Little's Missing completely at random (MCAR) test}
+\title{Little's missing completely at random (MCAR) test}
 \usage{
 mcar(data, debug = FALSE)
 }
@@ -12,7 +12,7 @@ mcar(data, debug = FALSE)
 \item{debug}{A logical value used only for unit testing.}
 }
 \value{
-A \code{data.frame()}:
+A data frame:
 \item{statistic}{The d^2 statistic}
 \item{degrees_freedom}{Degrees of freedom of chi-squared distribution}
 \item{p_val}{P-value of the test}
@@ -26,16 +26,15 @@ The null hypothesis is that the data is not MCAR.
 \details{
 This function reproduces the d^2 statistic in equation (5) from [1].
 This statistic is used to test for MCAR. Comments reference variables
-from the paper (in brackets) to improve readability and traceability.
-See \code{vignette("background")} for a more thorough description of the
-test and definitions of the variables shown (in brackets).
+from \code{vignette("background")} (in brackets) to improve readability and
+traceability.
 }
 \note{
 Code is adapted from \code{mcar_test()} from the naniar package
 using base R instead of the tidyverse.
 }
 \examples{
-mcar(airquality)
+mcar(pollutionlevels)
 
 }
 \references{

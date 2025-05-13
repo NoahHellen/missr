@@ -17,19 +17,36 @@ There are three assumptions about the process by which data become missing \[1].
 
 ## Probabilistic interpretation
 
-The process by which data become missing is *random*, and so missing data can be formalised from a probabilistic perspective.
+The process by which data become missing is *random*, and so missing 
+data can be formalised from a probabilistic perspective.
 
 ## Mathematical formalism
 
-The following formalism is taken from \[1].
+The following unifies the formalisms in \[1], \[2], and \[3].
 
-Define $D = \{Y,X\}$ as the $n \times m$ data matrix consisting of $n \times m-1$ predictor ($X$) and $n \times 1$ target ($Y$) variables.
+- $D$ : $n \times p$ data matrix
+  - $D = (D_{obs}, D_{mis})$
+- $D_{obs}$ : observed values of $D$
+- $D_{mis}$ : unobserved values of $D$
+- $M$ : $n \times p$ missingness indicator matrix, where $M_{ij} = 1$ 
+if $D_{ij}$ is observed and $0$ otherwise
+- $j$ : distinct missing data pattern in $M$
+- $J$ : total $j$
+- $S_j$ : set of cases with missing data pattern $j$
+- $m_j$ : number of cases in $S_j$
+- $p_j$ : number of observed variables in $S_j$
+- $\boldsymbol{\mu}$ : population mean vector
+- $\Sigma$ : population covariance matrix
+- $\hat{\boldsymbol{\mu}}$ : ML estimate of $\boldsymbol{\mu}$
+- $\hat{\Sigma}$ : ML estimate of $\Sigma$
+- $Q_j$ : $p \times p_j$ matrix indicating which variables are observed for pattern $j$
+- $\hat{\boldsymbol{\mu}}_{obs,j}$ : subset of $\hat{\boldsymbol{\mu}}$ given by $\hat{\boldsymbol{\mu}}_{obs,j} \equiv \hat{\boldsymbol{\mu}}Q_j$
+- $\bar{D}_{obs, j}$ : vector of sample means of observed variables in pattern $j$.
+- $\hat{\Sigma}_{obs,j}$ : subset of $\hat{\Sigma}$ given by $\hat{\Sigma}_{obs,j} \equiv Q_j^{\top}\hat{\Sigma} Q_j$ 
+- $\tilde{\Sigma}_{obs, j}$ : accounts for degrees of freedom in $\hat{\Sigma}_{obs,j}$ given by $\tilde{\Sigma}_{obs, j} = \frac{n}{n-1}\hat{\Sigma}_{obs,j}$
+- $d^2$ : statistic used to test MCAR where $d^2 = \sum_{j=1}^J m_j (\bar{D}_{obs, j} - \hat{\boldsymbol{\mu}}_{obs, j}) \tilde{\Sigma}_{obs, j}^{-1}
+(\bar{D}_{obs, j} - \hat{\boldsymbol{\mu}}_{obs, j})^{\top}$ =
 
-Note that some authors consider $D$ as a tuple \[2].
-
-Also define $M$ as the $n \times m$ missingness indicator matrix. Each element is $1$ or $0$ corresponding to observed or missing values in $D$ respectively.
-
-Finally, define $D_{obs}$ and $D_{mis}$ as the observed and missing portions of $D$. In this way, $D$ can be loosely partitioned as $D = \{D_{obs}, D_{mis}\}$.
 
 The definitions of MCAR, MAR, and MNAR are based on the probability distribution of $M$.
 
@@ -50,7 +67,15 @@ The above is summarised informally below \[1].
 
 ## References
 
-[1] King G, Honaker J, Joseph A, Scheve K. Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple
-Imputation. American Political Science Review. 2001 March.
+[1] King G, Honaker J, Joseph A, Scheve K. Analyzing Incomplete Political Science Data: An Alternative 
+Algorithm for Multiple Imputation. American Political Science Review. 2001 March.
 
-[2] Joseph G Ibrahim HZ, Tang N. Model Selection Criteria for Missing-Data Problems Using the EM Algorithm. Journal of the American Statistical Asso- ciation. 2008;103(484):1648-58. PMID: 19693282. Available from: https: //doi.org/10.1198/016214508000001057. pages 7
+[2] Little RJA. A Test of Missing Completely at Random for Multivariate Data with Missing Values. Journal
+of the American Statistical Association. 1988;83(404):1198-202.
+
+[3] Rubin DB. Inference and Missing Data. Biometrika. 1976;63(3):581-92. Available from: 
+http://www.jstor.org/stable/2335739
+
+[4] Joseph G Ibrahim HZ, Tang N. Model Selection Criteria for Missing-Data Problems Using the EM Algorithm. 
+Journal of the American Statistical Asso- ciation. 2008;103(484):1648-58. PMID: 19693282. Available 
+from: https: //doi.org/10.1198/016214508000001057. pages 7

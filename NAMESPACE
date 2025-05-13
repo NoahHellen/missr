@@ -2,4 +2,5 @@
 
 export(mar)
 export(mcar)
+export(mnar)
 importFrom(lifecycle,deprecated)
