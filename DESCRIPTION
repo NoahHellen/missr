@@ -1,6 +1,6 @@
 Package: missr
 Title: Classify Missing Data as MCAR, MAR, or MNAR
-Version: 0.0.1
+Version: 1.0.0
 Authors@R:
     person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Noah William Trelawny Hellen <noahhellen@gmail.com>
