@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   background: background.html
   introduction: introduction.html
-last_built: 2025-05-22T11:17Z
+last_built: 2025-05-22T11:25Z
 urls:
   reference: https://noahhellen.github.io/missr/reference
   article: https://noahhellen.github.io/missr/articles
