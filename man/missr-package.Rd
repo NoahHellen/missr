@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Classify missing data as MCAR, MAR, or MNAR. This step is required before handling missing data (e.g. mean imputation) so that bias is not introduced.
+Classify missing data as missing completely at random (MCAR), missing at random (MAR), or missing not at random (MNAR). This step is required before handling missing data (e.g. mean imputation) so that bias is not introduced. See Little (1988) \doi{10.1080/01621459.1988.10478722} for the statistical rationale for the methods used.
 }
 \seealso{
 Useful links:

@@ -2,7 +2,7 @@
 #'
 #' A toy dataset with typical company metrics across various firms.
 #'
-#' @format A 200 x 5 data frame:
+#' @format A 500 x 5 data frame:
 #' \describe{
 #'   \item{sales}{Sales in the last fiscal year (USD, million)}
 #'   \item{marketing_spend}{Marketing spend in last fiscal year (USD, million)}

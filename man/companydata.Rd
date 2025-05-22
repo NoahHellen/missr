@@ -5,7 +5,7 @@
 \alias{companydata}
 \title{Simulated company data (MNAR)}
 \format{
-A 200 x 5 data frame:
+A 500 x 5 data frame:
 \describe{
 \item{sales}{Sales in the last fiscal year (USD, million)}
 \item{marketing_spend}{Marketing spend in last fiscal year (USD, million)}

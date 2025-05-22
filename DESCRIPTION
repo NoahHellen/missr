@@ -4,9 +4,11 @@ Version: 0.0.1
 Authors@R:
     person(c("Noah", "William", "Trelawny"), "Hellen", , "noahhellen@gmail.com", role = c("aut", "cre", "cph"))
 Maintainer: Noah William Trelawny Hellen <noahhellen@gmail.com>
-Description: Classify missing data as MCAR, MAR, or MNAR. This step is
-    required before handling missing data (e.g. mean imputation) so that
-    bias is not introduced.
+Description: Classify missing data as missing completely at random (MCAR), missing
+    at random (MAR), or missing not at random (MNAR). This step is required before
+    handling missing data (e.g. mean imputation) so that bias is not introduced.
+    See Little (1988) <doi:10.1080/01621459.1988.10478722> for the statistical
+    rationale for the methods used.
 License: MIT + file LICENSE
 URL: https://github.com/NoahHellen/missr, https://noahhellen.github.io/missr/
 BugReports: https://github.com/NoahHellen/missr/issues
