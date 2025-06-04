@@ -36,6 +36,7 @@ test_that("mcar() computes correct total missing patterns", {
 })
 
 test_that("mcar() calculates correct statistics", {
+  testthat::skip_on_cran()
   output <- mcar(pollutionlevels)
   expect_equal(output$statistic, 1.4909763)
   expect_equal(output$degrees_freedom, 3)

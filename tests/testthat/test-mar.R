@@ -18,6 +18,7 @@ test_that("mar() warns users of non-numeric encoding", {
 })
 
 test_that("mar() calculates correct statistics", {
+  testthat::skip_on_cran()
   result <- mar(healthcheck)
   expect_equal(result$missing, "rbc")
   expect_equal(result$explanatory, "age")
