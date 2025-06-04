@@ -16,9 +16,3 @@ We checked 0 reverse dependencies, comparing R CMD check results across CRAN and
  MCAR: missing completely at random
  MAR: missing at random
  MNAR: missing not at random
-
- ## Resubmission fixes
-
- The acronyms MCAR, MAR, and MNAR have been explained in the description field of the DESCRIPTION file.
-
- A reference to Little's 1988 article has been added in the description field of the DESCRIPTION file.
